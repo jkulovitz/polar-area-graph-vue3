@@ -7,28 +7,16 @@ export const useProduceStore = defineStore('ProduceStore', {
     purchases: [] as ProduceData[],
     isLoading: false as boolean,
     colors: [
-        "#b3045d",
-        "#e4b847",
-        "#9fd041",
-        "#72bf76",
-        "#6d9fe4",
-        '#381d8e',
-        '#6e0081',
-        '#7a5000',
-        '#404040',
+      "#b3045d",
+      "#e4b847",
+      "#9fd041",
+      "#72bf76",
+      "#6d9fe4",
+      '#381d8e',
+      '#6e0081',
+      '#7a5000',
+      '#404040',
     ] as string[],
-    editDialogOpen: false as boolean,
-    editIndex: -1 as number,
-    defaultItem: {
-        description: '',
-        numberPurchased: 0,
-        price: 0,
-    },
-    editedItem: {
-        description: '',
-        numberPurchased: 0,
-        price: 0,
-    },
   }),
   actions: {
     getPurchases () {
@@ -40,24 +28,6 @@ export const useProduceStore = defineStore('ProduceStore', {
     },
     deletePurchase (item) {
       return purchaseService.deletePurchase(item.id);
-    },
-    editPurchase (item) {
-      this.editedItem = {...item};
-    },
-    closeDialog () {
-      this.editDialogOpen = false;
-      this.editedItem = this.defaultItem;
-      this.editIndex = -1;
-    },
-    saveUpdatedItem () {
-      const forApiObj = this.editedItem;
-      delete forApiObj.color;
-      delete forApiObj.dollarsPercentPercent;
-      delete forApiObj.numberPurchasedPercent;
-      return purchaseService.editPurchase(forApiObj.id, forApiObj);
-    },
-    saveNewPurchase () {
-      return purchaseService.saveNewPurchase(this.editedItem);
     },
   },
   getters: {

@@ -37,9 +37,11 @@
 
 <script setup lang="ts">
 import { useProduceStore } from "@/stores/produceStore";
+import { useEditItemStore } from "@/stores/editItemStore";
 import ProduceData from '@/types/ProduceData';
 
 const produceStore = useProduceStore();
+const editItemStore = useEditItemStore();
 
 const headers = [
   { title: 'Description', key: 'description' },
@@ -51,17 +53,17 @@ const headers = [
 ];
 
 const editPurchaseInTable = (item: ProduceData) => {
-  produceStore.editIndex = produceStore.purchases.indexOf(item);
-  produceStore.editPurchase(item);
-  produceStore.editDialogOpen = true;
+  editItemStore.editIndex = produceStore.purchases.indexOf(item);
+  editItemStore.editPurchase(item);
+  editItemStore.editDialogOpen = true;
 };
 const deletePurchaseFromTable = async (item: ProduceData) => {
   await produceStore.deletePurchase(item);
   produceStore.getPurchases();
 };
 const addPurchase = () => {
-  produceStore.editIndex = -1;
-  produceStore.editDialogOpen = true;
+  editItemStore.editIndex = -1;
+  editItemStore.editDialogOpen = true;
 };
 </script>
 
