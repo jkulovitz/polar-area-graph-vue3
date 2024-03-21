@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import purchaseService from '@/services/purchaseService';
+import ProduceItem from "@/types/ProduceItem";
 
 export const useEditItemStore = defineStore('EditItemStore', {
   state: () => ({
@@ -7,12 +8,12 @@ export const useEditItemStore = defineStore('EditItemStore', {
       description: '',
       numberPurchased: 0,
       price: 0,
-    },
+    } as ProduceItem,
     editDialogOpen: false as boolean,
     editIndex: -1 as number,
   }),
   actions: {
-    editPurchase (item) {
+    editPurchase (item: ProduceItem) {
       this.editedItem = {...item};
     },
     saveUpdatedItem () {

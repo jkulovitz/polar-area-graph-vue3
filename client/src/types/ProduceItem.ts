@@ -1,6 +1,6 @@
-export default interface ProduceData {
+export default interface ProduceItem {
+    id?: number,
     description: string,
-    id: number,
     numberPurchased: number,
     price: number,
 }

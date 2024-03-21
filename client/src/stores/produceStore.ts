@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
 import purchaseService from '@/services/purchaseService';
-import ProduceData from "@/types/ProduceData";
+import ProduceItem from "@/types/ProduceItem";
 
 export const useProduceStore = defineStore('ProduceStore', {
   state: () => ({
-    purchases: [] as ProduceData[],
+    purchases: [] as ProduceItem[],
     isLoading: false as boolean,
     colors: [
       "#b3045d",
@@ -26,7 +26,7 @@ export const useProduceStore = defineStore('ProduceStore', {
         this.isLoading = false;
       });
     },
-    deletePurchase (item) {
+    deletePurchase (item: ProduceItem) {
       return purchaseService.deletePurchase(item.id);
     },
   },
