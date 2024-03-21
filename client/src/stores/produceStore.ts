@@ -31,18 +31,12 @@ export const useProduceStore = defineStore('ProduceStore', {
     },
   },
   getters: {
-    labels: (state) => {
-      return state.purchases.map(item => item.description);
-    },
-    dollarsSpentPerItem: (state) => {
-      return state.purchases.map(item => item.price);
-    },
+    labels: (state) => state.purchases.map(item => item.description),
+    dollarsSpentPerItem: (state) => state.purchases.map(item => item.price),
     totalDollarsSpent() {
       return this.dollarsSpentPerItem.reduce((a, b) => a + b);
     },
-    numberOfItemsPurchased: (state) => {
-      return state.purchases.map(item => item.numberPurchased);
-    },
+    numberOfItemsPurchased: (state) => state.purchases.map(item => item.numberPurchased),
     totalItemsPurchased() {
       return this.numberOfItemsPurchased.reduce((a, b) => a + b);
     },
