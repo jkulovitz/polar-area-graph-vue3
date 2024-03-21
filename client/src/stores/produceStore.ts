@@ -36,10 +36,10 @@ export const useProduceStore = defineStore('ProduceStore', {
       return purchaseService.getPurchases().then((data) => {
         this.purchases = Object.values(data);
         this.isLoading = false;
-      })
+      });
     },
     deletePurchase (item) {
-      return purchaseService.deletePurchase(item.id)
+      return purchaseService.deletePurchase(item.id);
     },
     editPurchase (item) {
       this.editedItem = {...item};
@@ -54,27 +54,27 @@ export const useProduceStore = defineStore('ProduceStore', {
       delete forApiObj.color;
       delete forApiObj.dollarsPercentPercent;
       delete forApiObj.numberPurchasedPercent;
-      return purchaseService.editPurchase(forApiObj.id, forApiObj)
+      return purchaseService.editPurchase(forApiObj.id, forApiObj);
     },
     saveNewPurchase () {
-      return purchaseService.saveNewPurchase(this.editedItem)
+      return purchaseService.saveNewPurchase(this.editedItem);
     },
   },
   getters: {
     labels: (state) => {
-      return state.purchases.map(item => item.description)
+      return state.purchases.map(item => item.description);
     },
     dollarsSpentPerItem: (state) => {
-      return state.purchases.map(item => item.price)
+      return state.purchases.map(item => item.price);
     },
     totalDollarsSpent() {
-      return this.dollarsSpentPerItem.reduce((a, b) => a + b)
+      return this.dollarsSpentPerItem.reduce((a, b) => a + b);
     },
     numberOfItemsPurchased: (state) => {
-      return state.purchases.map(item => item.numberPurchased)
+      return state.purchases.map(item => item.numberPurchased);
     },
     totalItemsPurchased() {
-      return this.numberOfItemsPurchased.reduce((a, b) => a + b)
+      return this.numberOfItemsPurchased.reduce((a, b) => a + b);
     },
     angles() {
       return this.numberOfItemsPurchased.map((value) => {
@@ -85,13 +85,13 @@ export const useProduceStore = defineStore('ProduceStore', {
     },
     tableMetrics() {
       const metrics = this.purchases.map((obj, key) => {
-        const newObj = obj
-        newObj.color = this.colors[key]
-        newObj.numberPurchasedPercent = this.numberOfItemsPurchased[key] / this.totalItemsPurchased * 100
-        newObj.dollarsPercentPercent = this.dollarsSpentPerItem[key] / this.totalDollarsSpent * 100
-        return newObj
-      })
-      return metrics
+        const newObj = obj;
+        newObj.color = this.colors[key];
+        newObj.numberPurchasedPercent = this.numberOfItemsPurchased[key] / this.totalItemsPurchased * 100;
+        newObj.dollarsPercentPercent = this.dollarsSpentPerItem[key] / this.totalDollarsSpent * 100;
+        return newObj;
+      });
+      return metrics;
     }
   },
 });
