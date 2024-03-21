@@ -5,7 +5,7 @@ import ProduceData from "@/types/ProduceData";
 export const useProduceStore = defineStore('ProduceStore', {
   state: () => ({
     purchases: [] as ProduceData[],
-    isLoading: false,
+    isLoading: false as boolean,
     colors: [
         "#b3045d",
         "#e4b847",
@@ -16,9 +16,9 @@ export const useProduceStore = defineStore('ProduceStore', {
         '#6e0081',
         '#7a5000',
         '#404040',
-    ],
-    editDialogOpen: false,
-    editIndex: -1,
+    ] as string[],
+    editDialogOpen: false as boolean,
+    editIndex: -1 as number,
     defaultItem: {
         description: '',
         numberPurchased: 0,
