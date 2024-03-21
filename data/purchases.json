@@ -1,0 +1,44 @@
+{
+  "1": {
+    "id": 1,
+    "description": "Strawberries",
+    "price": 65,
+    "numberPurchased": 5
+  },
+  "2": {
+    "id": 2,
+    "description": "Bananas",
+    "price": 25,
+    "numberPurchased": 30
+  },
+  "3": {
+    "id": 3,
+    "description": "Kiwis",
+    "price": 36,
+    "numberPurchased": 7
+  },
+  "4": {
+    "id": 4,
+    "description": "Watermellons",
+    "price": 85,
+    "numberPurchased": 20
+  },
+  "5": {
+    "id": 5,
+    "description": "Blueberries",
+    "price": 100,
+    "numberPurchased": 30
+  },
+  "6": {
+    "id": 6,
+    "description": "Plums",
+    "price": 15,
+    "numberPurchased": 12
+  },
+  "7": {
+    "id": 7,
+    "description": "Grapes",
+    "price": 35,
+    "numberPurchased": 30
+  }
+}

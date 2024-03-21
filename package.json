@@ -1,0 +1,18 @@
+{
+  "name": "polar-area",
+  "version": "1.0.0",
+  "description": "polar area chart with varying angles",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "jkulovitz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
